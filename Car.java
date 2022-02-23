@@ -195,6 +195,10 @@ public abstract class Car implements Movable, Positionable{
      */
     public double getY() {return y;}
 
+    public String getModelName() {
+        return modelName;
+    }
+
     public void setX(double x) {
         this.x = x;
     }
