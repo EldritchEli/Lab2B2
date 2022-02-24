@@ -22,10 +22,10 @@ public class Application {
         ArrayList<Car> cars = new ArrayList<>();
         DrawPanel drawPanel = new DrawPanel(800, 800 - 240, carGroup);
         SpeedPanel speedPanel = new SpeedPanel(carGroup);
-        // Instance of this class
-        CarController cc = new CarController(carGroup);
+        CarView frame = new CarView("Simulation", drawPanel, speedPanel);// Instance of this class
+        CarController cc = new CarController(carGroup, frame);
 
-        CarView frame = new CarView("Simulation", cc, drawPanel, speedPanel);
+
 
         carGroup.addObserver(speedPanel);
         carGroup.addObserver(drawPanel);

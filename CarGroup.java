@@ -30,8 +30,8 @@ public class CarGroup implements Subject{
             cars.add(car);
         }
 
-        void brake(int amount) {
-            double brake = ((double) amount) / 100;
+        void brake() {
+            double brake = 0.2;
             for (Car car : cars
             ) {
                 car.brake(brake);
@@ -50,6 +50,7 @@ public class CarGroup implements Subject{
             ) {
                 car.startEngine();
             }
+            System.out.println("hello");
         }
 
         void turboOn() {
