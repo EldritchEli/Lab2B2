@@ -2,26 +2,38 @@ import java.util.ArrayList;
 
 public class Application {
 
-    CarView frame;
-    // A list of cars, modify if needed
-    CarGroup carGroup = new CarGroup();
-    ArrayList<Car> cars = new ArrayList<>();
+
 
     public static void main(String[] args) {
-        // Instance of this class
-        CarController cc = new CarController();
+
+
+        // A list of cars, modify if needed
+
+
+
+        CarFactory carFactory = new CarFactory();
+        CarGroup carGroup = new CarGroup();
         Volvo240 volvo240 = new Volvo240();
-        Saab95 saab95 = new Saab95();
+
         Scania scania = new Scania();
 
-        saab95.setY(100);
-        scania.setY(200);
 
-        cc.carGroup.add(volvo240);
-        cc.carGroup.add(saab95);
-        cc.carGroup.add(scania);
+
+        ArrayList<Car> cars = new ArrayList<>();
+        DrawPanel drawPanel = new DrawPanel(800, 800 - 240, carGroup);
+        SpeedPanel speedPanel = new SpeedPanel(carGroup);
+        // Instance of this class
+        CarController cc = new CarController(carGroup);
+
+        CarView frame = new CarView("Simulation", cc, drawPanel, speedPanel);
+
+        carGroup.addObserver(speedPanel);
+        carGroup.addObserver(drawPanel);
+
+
+
 
         // Start a new view and send a reference of self
         }
     }
-}
+

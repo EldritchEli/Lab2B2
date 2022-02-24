@@ -1,44 +1,43 @@
+import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.sql.Array;
-import java.util.*;
+import java.io.IOException;
 
-public class CarAdapter implements Observer{
+public class CarAdapter implements TextureAdapter{
 
-    CarGroup carGroup;
-    List<Triple> tripleList;
 
-    public CarAdapter(){
-        this.tripleList = new ArrayList<>();
-        carGroup = new CarGroup();
+
+
+    public CarAdapter() {
     }
 
-    @Override
-    public void updateObserver() {
-        List<Triple> newTriples}
+    public BufferedImage getTexture(Car car) {
 
-    public void add(double x, double y, BufferedImage texture) {
-        tripleList.add(new Triple(x,y,texture));
-    }
-    public void set(int index, double x, double y) {
-        tripleList.get(index).setPosition(x,y);
-    }
 
-    public double getX(int index) {
-        return tripleList.get(index).getX();
-    }
 
-    public double getY(int index) {
-        return tripleList.get(index).getY();
-    }
+        BufferedImage texture = null;
+        String filePath;
 
-    public BufferedImage getTexture(int index) {
-        return tripleList.get(index).getTexture();
-    }
 
-    public List<Triple> getTripleList() {
-        return tripleList;
-    }
-    public Triple get(int index){
-        return tripleList.get(index);
-    }
-}
+        if (car instanceof Saab95) {
+            filePath = "pics/Saab95.jpg";
+        }
+
+        else if (car instanceof Scania) {
+            filePath = "pics/Scania.jpg";
+        }
+
+        else if (car instanceof Volvo240) {
+            filePath = "pics/Volvo240.jpg";
+        }
+        else {
+            filePath = "pics/ImageMissing.jpg";}
+
+
+            try {
+                texture = ImageIO.read(DrawPanel.class.getResourceAsStream(filePath));
+            } catch (IOException ex) {
+                texture = null;
+                ex.printStackTrace();
+            }
+        // System.out.println(filePath);
+        return texture;}}

@@ -20,14 +20,29 @@ public class CarView extends JFrame{
     // The controller member
     CarController carC;
 
-    DrawPanel drawPanel = new DrawPanel(X, Y-240);
+    DrawPanel drawPanel;
+
+    SpeedPanel speedPanel;
 
     JPanel controlPanel = new JPanel();
 
+
+
+
+    // Constructor
+    public CarView(String framename, CarController cc, DrawPanel drawPanel, SpeedPanel speedPanel){
+        this.drawPanel = drawPanel;
+        this.speedPanel = speedPanel;
+
+        this.carC = cc;
+        initComponents(framename);
+    }
+    JPanel carPanel = new JPanel();
+    JPanel carGrid = new JPanel();
     JPanel gasPanel = new JPanel();
     JSpinner gasSpinner = new JSpinner();
     int gasAmount = 0;
-    JLabel gasLabel = new JLabel("Amount of gas");
+    JLabel gasLabel = new JLabel("      Amount of gas");
 
     JButton gasButton = new JButton("Gas");
     JButton brakeButton = new JButton("Brake");
@@ -35,25 +50,44 @@ public class CarView extends JFrame{
     JButton turboOffButton = new JButton("Saab Turbo off");
     JButton liftBedButton = new JButton("Scania Lift Bed");
     JButton lowerBedButton = new JButton("Lower Lift Bed");
+    JButton addSaab = new JButton("Add new Saab");
+    JButton addVolvo240 = new JButton("Add new Volvo");
+    JButton addScania = new JButton("Add new Scania");
+    JButton removeFirst = new JButton("Remove first car");
+    JButton removeLast = new JButton("Remove last car");
+    JButton removeAll = new JButton("Remove all cars");
+
 
     JButton startButton = new JButton("Start all cars");
     JButton stopButton = new JButton("Stop all cars");
 
-    // Constructor
-    public CarView(String framename, CarController cc){
-        this.carC = cc;
-        initComponents(framename);
-    }
 
     // Sets everything in place and fits everything
     // TODO: Take a good look and make sure you understand how these methods and components work
     private void initComponents(String title) {
 
         this.setTitle(title);
-        this.setPreferredSize(new Dimension(X,Y));
+        this.setPreferredSize(new Dimension(X + 150,Y));
         this.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
 
+        carPanel.setLayout(new FlowLayout());
+        carPanel.setPreferredSize(new Dimension(150,560));
+        carGrid.setLayout(new GridLayout(6,1));
+        carGrid.setPreferredSize(new Dimension(150,300));
+        Dimension dimen = new Dimension(150,100);
+        addSaab.setPreferredSize(dimen);addVolvo240.setPreferredSize(dimen);
+        addScania.setPreferredSize(dimen); removeFirst.setPreferredSize(dimen);
+        removeLast.setPreferredSize(dimen); removeAll.setPreferredSize(dimen);
+        carGrid.add(addSaab); carGrid.add(addVolvo240); carGrid.add(addScania);
+        carGrid.add(removeFirst); carGrid.add(removeLast); carGrid.add(removeAll);
+
+
+        carPanel.add(speedPanel);
+        carPanel.add(carGrid);
+        this.add(carPanel);
+
         this.add(drawPanel);
+
 
 
 
@@ -63,19 +97,26 @@ public class CarView extends JFrame{
                         100, //max
                         1);//step
         gasSpinner = new JSpinner(spinnerModel);
+        gasSpinner.setPreferredSize(new Dimension(150,30));
         gasSpinner.addChangeListener(new ChangeListener() {
             public void stateChanged(ChangeEvent e) {
-                gasAmount = (int) ((JSpinner)e.getSource()).getValue();
+                carC.setGasAmount((int)((JSpinner)e.getSource()).getValue());
             }
         });
 
         gasPanel.setLayout(new BorderLayout());
         gasPanel.add(gasLabel, BorderLayout.PAGE_START);
         gasPanel.add(gasSpinner, BorderLayout.PAGE_END);
+        //gasPanel.setPreferredSize(new Dimension(150,260));
 
         this.add(gasPanel);
 
-        controlPanel.setLayout(new GridLayout(2,4));
+
+
+
+
+
+        controlPanel.setLayout(new GridLayout(2,3));
 
         controlPanel.add(gasButton, 0);
         controlPanel.add(turboOnButton, 1);
@@ -102,6 +143,43 @@ public class CarView extends JFrame{
         // This actionListener is for the gas button only
         // TODO: Create more for each component as necessary
         // TURBO OFF
+
+        addSaab.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.addSaab();
+            }
+        });
+
+        addVolvo240.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.addVolvo240();
+            }
+        });
+
+        addScania.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {carC.addScania();}});
+
+        removeFirst.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    carC.removeFirst();
+                }});
+
+
+        removeLast.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.removeLast();
+            }});
+
+        removeAll.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.removeAll();
+            }});
         turboOffButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

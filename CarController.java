@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 /*
 * This class represents the Controller part in the MVC pattern.
-* It's responsibilities is to listen to the View and responds in a appropriate manner by
+* Its responsibilities are to listen to the View and responds in an appropriate manner by
 * modifying the model state and the updating the view.
  */
 
@@ -13,19 +13,25 @@ public class CarController {
     // member fields:
     // The frame that represents this instance View of the MVC pattern
     // A list of cars, modify if needed
-    CarGroup carGroup = new CarGroup(this);
+    CarGroup carGroup;
 
+    public CarController(CarGroup carGroup) {
+        this.carGroup = carGroup;
+    }
 
     void brake(int amount) {
         carGroup.brake(amount);
     }
     // Calls the gas method for each car once
     void gas(int amount) {
-        carGroup.gas(amount);
+        carGroup.gas();
     }
+
     void startEngine(){
         carGroup.startEngine();
     }
+
+    void setGasAmount(int i) { carGroup.setGasAmount(i);}
 
     void turboOn() {
        carGroup.turboOn();
@@ -35,16 +41,9 @@ public class CarController {
         carGroup.turboOff();
     }
 
-    void liftBed() {
-        for (Car car : cars) {
-            if (car instanceof FlatbedCar) {
-                ((FlatbedCar) car).incrementFlatbed();}}}
+    void liftBed() {carGroup.liftBed();}
 
-    void lowerBed() {
-        for (Car car : cars) {
-            if(car instanceof FlatbedCar) {
-                ((FlatbedCar) car).decrementFlatbed();
-            }}}
+    void lowerBed() {carGroup.lowerBed();}
 
     void stopEngine() {
         carGroup.stopEngine();

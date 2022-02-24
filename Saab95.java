@@ -5,7 +5,7 @@ import java.awt.*;
  * @author Eli Uhlin, Alexander Lisborg
  * @version 1.6 21 january 2022
  */
-public class Saab95 extends Car {
+public class Saab95 extends Car implements HasTurbo{
 
     /***
      * The turbo amount of the car.

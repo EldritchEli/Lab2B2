@@ -11,17 +11,22 @@ import javax.swing.*;
 
 public class DrawPanel extends JPanel implements Observer{
 
-    CarGroup carGroup;
-    List<Car> cars;
+    private CarGroup carGroup;
+
+    private TextureAdapter adapter = new CarAdapter();
+
+    JPanel carSpeedPanel = new JPanel();
+    JLabel speed = new JLabel("speed");
 
 
 
     // Initializes the panel and reads the images
-    public DrawPanel(int x, int y) {
+    public DrawPanel(int x, int y, CarGroup carGroup) {
         this.setDoubleBuffered(true);
         this.setPreferredSize(new Dimension(x, y));
         this.setBackground(Color.magenta);
-        this.cars = new ArrayList<Car>();
+        this.carGroup = carGroup;
+
     }
 
     // This method is called each time the panel updates/refreshes/repaints itself
@@ -30,10 +35,12 @@ public class DrawPanel extends JPanel implements Observer{
         super.paintComponent(g);
 
         for (Car car:
-             cars) {
-
-
-            g.drawImage(getTexture(car), (int)car.getX(), (int)car.getY(), null); // see javadoc for more info on the parameters
+             carGroup.getCars()) {
+            g.drawImage(adapter.getTexture(car), (int)car.getX(), (int)car.getY(), null); // see javadoc for more info on the parameters
         }
+    }
+
+    public void updateObserver() {
+        repaint();
     }
 }

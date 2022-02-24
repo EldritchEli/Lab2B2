@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public abstract class FlatbedCar extends Car {
+public abstract class FlatbedCar extends Car implements HasFlatbed{
     private Flatbed flatbed;
 
     /***

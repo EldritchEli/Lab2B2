@@ -7,6 +7,7 @@ import java.util.List;
 
 public class CarGroup implements Subject{
 
+    private CarFactory carFactory = new CarFactory();
         public List<Observer> observers;
 
         public double gasAmount;
@@ -37,8 +38,8 @@ public class CarGroup implements Subject{
             }
         }
 
-        void gas(int amount) {
-            double gas = amount / 100;
+        void gas() {
+            double gas = gasAmount / 100;
             for (Car car : cars
             ) {
                 car.gas(gas);
@@ -63,21 +64,26 @@ public class CarGroup implements Subject{
 
         void turboOff() {
             for (Car car : cars) {if (car instanceof HasTurbo t){
-                t.setTurboOff();}}}
+                t.setTurboOff();
+                System.out.println("turbo off");}}}
 
         void liftBed() {
             for (Car car : cars) {
                 if (car instanceof HasFlatbed f) {
-                    f.incrementFlatbed();}}}
+                    f.incrementFlatbed();
+                    System.out.println("lifting");}}}
+
 
         void lowerBed() {
             for (Car car : cars) {
                 if(car instanceof HasFlatbed f) {f.decrementFlatbed();
-                }}}
+
+                    System.out.println("lowering");}}}
 
         void stopEngine() {
             for (Car car : cars) {
-                car.stopEngine();}}
+                car.stopEngine();
+                System.out.println("All engines stopped!");}}
 
 
     private class TimerListener implements ActionListener {
@@ -102,6 +108,8 @@ public class CarGroup implements Subject{
         }
     }
 
+
+
         public ArrayList<Car> getCars() {return cars;}
 
         public double getGasAmount() {return gasAmount;}
@@ -114,6 +122,8 @@ public class CarGroup implements Subject{
     public void removeObserver(Observer observer){
         observers.remove(observer);
         }
+
+
 
     public void notifyObserver(){
 
