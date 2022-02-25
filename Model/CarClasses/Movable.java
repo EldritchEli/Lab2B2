@@ -1,3 +1,5 @@
+package Model.CarClasses;
+
 /***
  * interface for objects that are supposed to move or change angle of direction.
  * @author Eli Uhlin, Alexander Lisborg

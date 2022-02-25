@@ -1,3 +1,5 @@
+package Model.CarClasses;
+
 import java.util.ArrayDeque;
 import java.util.Deque;
 
@@ -11,7 +13,7 @@ public class Platform <T extends Positionable> implements Positionable {
     private final double acceptableItemRange = 2;
 
     /***
-     * Constructor for Platform
+     * Constructor for Model.CarClasses.Platform
      * @param sizeLimit when size Limit is reached items can no longer be loaded.
      */
     public Platform(double sizeLimit) {

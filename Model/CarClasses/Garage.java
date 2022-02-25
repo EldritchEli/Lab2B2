@@ -1,3 +1,7 @@
+package Model.CarClasses;
+
+
+
 public class Garage <T extends Car> implements Positionable {
 
     private Platform<T> platform;
@@ -7,9 +11,9 @@ public class Garage <T extends Car> implements Positionable {
     private double y;
 
     /***
-     * Garage constructor, can hold any Car type
+     * Model.CarClasses.Garage constructor, can hold any Model.CarClasses.Car type
      * @param sizeLimit if sum of all Loaded Cars exceeds sizeLimit
-     * @param maxCapacity max amount of cars that can be held in the Garage.
+     * @param maxCapacity max amount of cars that can be held in the Model.CarClasses.Garage.
      * @param x coordinate
      * @param y coordinate
      */
@@ -21,7 +25,7 @@ public class Garage <T extends Car> implements Positionable {
     }
 
     /***
-     *Loads specified item into the Garage assuming sizeLimit or maxCapacity has not been reached.
+     *Loads specified item into the Model.CarClasses.Garage assuming sizeLimit or maxCapacity has not been reached.
      * @param car specified car to be loaded.
      */
     public void loadItem(T car) {
@@ -41,7 +45,7 @@ public class Garage <T extends Car> implements Positionable {
     }
 
     /***
-     * unLoads last loaded Car.
+     * unLoads last loaded Model.CarClasses.Car.
      */
     public T unloadItem() {
         return platform.unLoadItem(0,1);

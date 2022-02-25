@@ -1,3 +1,7 @@
+package Model.CarClasses;
+
+
+
 import java.awt.*;
 
 public abstract class FlatbedCar extends Car implements HasFlatbed{

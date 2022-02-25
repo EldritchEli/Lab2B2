@@ -1,8 +1,15 @@
+package View;
+
+
+import Model.CarClasses.Car;
+import Model.CarGroup;
+import Model.Observer;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.List;
 
-public class SpeedPanel extends JPanel implements Observer{
+public class SpeedPanel extends JPanel implements Observer {
 
     CarGroup carGroup;
     List<Car> cars;

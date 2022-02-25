@@ -1,5 +1,6 @@
-import java.util.ArrayDeque;
-import java.util.Deque;
+package Model.CarClasses;
+
+
 
 public class Ramp extends Platform<Car> {
 
@@ -12,7 +13,7 @@ public class Ramp extends Platform<Car> {
     private final CarTransport carTransport;
 
     /***
-     * Constructor for Ramp.
+     * Constructor for Model.CarClasses.Ramp.
      * @param sizeLimit The maximum capacity in terms of size.
      * @param car The car object which has this ramp implemented.
      */
@@ -24,10 +25,10 @@ public class Ramp extends Platform<Car> {
     }
 
     /***
-     *Tells us if Ramp is currently up or down.
+     *Tells us if Model.CarClasses.Ramp is currently up or down.
      */
     public String getCurrentRampState() {
-        return "Ramp is " + currentRampState;
+        return "Model.CarClasses.Ramp is " + currentRampState;
     }
 
     /***
@@ -66,6 +67,6 @@ public class Ramp extends Platform<Car> {
             return super.unLoadItem(newX, newY);
         }
         else {
-            throw new RuntimeException("Ramp is UP!");
+            throw new RuntimeException("Model.CarClasses.Ramp is UP!");
         }}
 }

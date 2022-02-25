@@ -1,15 +1,16 @@
+package View;
+
+
+import Model.CarClasses.Car;
+import Model.CarGroup;
+import Model.Observer;
+
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import javax.imageio.ImageIO;
 import javax.swing.*;
 
 // This panel represents the animated part of the view with the car images.
 
-public class DrawPanel extends JPanel implements Observer{
+public class DrawPanel extends JPanel implements Observer {
 
     private CarGroup carGroup;
 

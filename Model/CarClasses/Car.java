@@ -1,3 +1,5 @@
+package Model.CarClasses;
+
 import java.awt.*;
 
 /***
@@ -61,7 +63,7 @@ public abstract class Car implements Movable, Positionable{
     private double size;
 
     /**
-     * Super constructor for Car object.
+     * Super constructor for Model.CarClasses.Car object.
      * @param nrDoors the number of doors the car will have.
      * @param enginePower the power of the engine.
      * @param color the color of the car.

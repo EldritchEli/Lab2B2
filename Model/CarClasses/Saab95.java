@@ -1,3 +1,7 @@
+package Model.CarClasses;
+
+
+
 import java.awt.*;
 
 /***
@@ -18,7 +22,7 @@ public class Saab95 extends Car implements HasTurbo{
     private boolean turboOn;
 
     /***
-     * Constructor for car Saab95.
+     * Constructor for car Model.CarClasses.Saab95.
      * turboOn is set to false by default.
      */
     public Saab95(){

@@ -1,3 +1,5 @@
+package Model.CarClasses;
+
 import java.awt.*;
 
 public class Truck extends CarTransport{

@@ -1,3 +1,7 @@
+package Model.CarClasses;
+
+
+
 import java.awt.*;
 
 public abstract class CarTransport extends Car {
@@ -18,7 +22,7 @@ public abstract class CarTransport extends Car {
     public String getCurrentRampState() {return ramp.getCurrentRampState();}
 
     /***
-     * checks if car is in range to be loaded onto the Ramp
+     * checks if car is in range to be loaded onto the Model.CarClasses.Ramp
      * @param car the car which we want to check the range of
      * @return
      */
@@ -33,14 +37,14 @@ public abstract class CarTransport extends Car {
     }
 
     /***
-     * loads car onto the Ramp, unless the car is out of range, or the car is another carTransport.
+     * loads car onto the Model.CarClasses.Ramp, unless the car is out of range, or the car is another carTransport.
      * @param car the car which is to be loaded
      */
     public void loadCar(Car car) {ramp.loadItem(car);}
 
 
     /***
-     * changes coordinates of the CarTransport and all loaded vehicles, based on angle and currentSpeed.
+     * changes coordinates of the Model.CarClasses.CarTransport and all loaded vehicles, based on angle and currentSpeed.
      */
     public void move() {
         double newX = getX() + getCurrentSpeed() * Math.cos(getAngle());

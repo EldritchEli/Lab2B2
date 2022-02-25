@@ -1,3 +1,7 @@
+package Model.CarClasses;
+
+
+
 import java.awt.*;
 
 /***
@@ -5,7 +9,7 @@ import java.awt.*;
  * @author Eli Uhlin, Alexander Lisborg
  * @version 1.6 21 january 2022
  */
-public class Volvo240 extends Car{
+public class Volvo240 extends Car {
 
     /***
      * Used to calculate the speedFactor for the Volvo240 car.
@@ -13,7 +17,7 @@ public class Volvo240 extends Car{
     public final static double trimFactor = 1.25;
 
     /***
-     * Constructor for  car Volvo240.
+     * Constructor for  car Model.CarClasses.Volvo240.
      */
     public Volvo240(){
         super(4,100,Color.black,"Volvo240",2);
@@ -21,7 +25,7 @@ public class Volvo240 extends Car{
     }
 
     /***
-     * Calculates the speedFactor for the Volvo240 car.
+     * Calculates the speedFactor for the Model.CarClasses.Volvo240 car.
      * @return speedFactor a unique value used to determine the
      * acceleration of the car in increment and decrement speed
      */

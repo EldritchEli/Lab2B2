@@ -1,3 +1,7 @@
+package Model.CarClasses;
+
+
+
 public class Flatbed {
 
     private double angle;
@@ -19,7 +23,7 @@ public class Flatbed {
     }
 
     /***
-     * Increases the angle of Flatbed with the defined incDecSpeed,
+     * Increases the angle of Model.CarClasses.Flatbed with the defined incDecSpeed,
      * incrementAngle will do nothing if angleLimit is reached or if the linked car is moving.
      */
     public void incrementAngle() {

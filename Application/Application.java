@@ -1,3 +1,16 @@
+package Application;
+
+import Controller.CarController;
+import Model.CarClasses.Car;
+import Model.CarClasses.Scania;
+import Model.CarClasses.Volvo240;
+import Model.CarFactory;
+import Model.CarGroup;
+
+
+import View.*;
+
+
 import java.util.ArrayList;
 
 public class Application {

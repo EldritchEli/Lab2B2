@@ -1,3 +1,5 @@
+package Model.CarClasses;
+
 public interface Positionable {
 
     double getX();

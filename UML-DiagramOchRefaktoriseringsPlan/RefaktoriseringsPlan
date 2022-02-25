@@ -1,16 +1,16 @@
 Refaktoreringsplan:
-	•	Skapa en ny klass CarGroup och flytta alla metoder som sköter logik för
-	    listan med Car i CarController till den nya klassen CarGroup.
-	•	skapa två interfaces HasFlatbed, och HasTurbo, låt funktionerna i
-	    CarGroup relaterat till turbo och flatbed bero på dessa istället för
-	    subklasser till Car. 
-	•	Deligera en CarGroup till DrawPanel via CarController
-	•	Skriv om koden för förflyttningen av bilarna i DrawPanel på ett mer
+	•	Skapa en ny klass Model.CarGroup och flytta alla metoder som sköter logik för
+	    listan med Model.CarClasses.Car i Controller.CarController till den nya klassen Model.CarGroup.
+	•	skapa två interfaces Model.CarClasses.HasFlatbed, och Model.CarClasses.HasTurbo, låt funktionerna i
+	    Model.CarGroup relaterat till turbo och flatbed bero på dessa istället för
+	    subklasser till Model.CarClasses.Car. 
+	•	Deligera en Model.CarGroup till View.DrawPanel via Controller.CarController
+	•	Skriv om koden för förflyttningen av bilarna i View.DrawPanel på ett mer
 	    allmänt sätt med hjälp av CarGroupen.
-	•	Implementera en getTexture() : String metod i Car, och ge alla
-	    subklasser till Car en egen texture.
-	•	i DrawPanel: Gör en foreach loop som itererar över cars listan i
-	    carGroup. Denna loop ska rita ut alla Car objekt i listan med hjälp av
+	•	Implementera en getTexture() : String metod i Model.CarClasses.Car, och ge alla
+	    subklasser till Model.CarClasses.Car en egen texture.
+	•	i View.DrawPanel: Gör en foreach loop som itererar över cars listan i
+	    carGroup. Denna loop ska rita ut alla Model.CarClasses.Car objekt i listan med hjälp av
 	    getX(), getY() och dess getTexture() värde. För att få texturen som en
 	    BufferedImage, återskapa try-catch strukturen som finns i konstruktorn,
 	    efteråt kan try-catch delen i konstruktorn tas bort.

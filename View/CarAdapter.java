@@ -1,3 +1,9 @@
+package View;
+
+
+
+import Model.CarClasses.*;
+
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -7,8 +13,7 @@ public class CarAdapter implements TextureAdapter{
 
 
 
-    public CarAdapter() {
-    }
+    public CarAdapter() {}
 
     public BufferedImage getTexture(Car car) {
 

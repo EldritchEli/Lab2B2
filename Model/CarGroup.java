@@ -1,3 +1,8 @@
+package Model;
+
+import Model.CarClasses.*;
+import Model.CarClasses.HasTurbo;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -5,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class CarGroup implements Subject{
+public class CarGroup implements Subject {
 
     private CarFactory carFactory = new CarFactory();
         public List<Observer> observers;
@@ -22,15 +27,39 @@ public class CarGroup implements Subject{
         private final int delay = 50;
         Timer timer = new Timer(delay, new TimerListener());
 
-        CarController cc;
-
         ArrayList<Car> cars = new ArrayList<>();
 
-        void add (Car car) {
-            cars.add(car);
+        public void add(String modelName) {
+
+            int y = (cars.size() *60) ;
+            if (cars.size() < 10) {
+
+
+                cars.add(carFactory.makeCar(y,0,modelName));
+            }
         }
 
-        void brake() {
+        public void removeAll() {
+            if(cars.size() > 0) {
+                cars.removeAll(cars);
+
+            }
+        }
+        public void removeLast() {
+            if(cars.size() > 0)
+                cars.remove(cars.size() -1);
+        }
+        public void removeFirst() {
+            if(cars.size() > 0) {
+                cars.remove(0);
+                for (Car car:
+                        cars) {
+                    car.setY(car.getY() - 60);
+                }
+            }
+        }
+
+        public void brake() {
             double brake = 0.2;
             for (Car car : cars
             ) {
@@ -38,14 +67,14 @@ public class CarGroup implements Subject{
             }
         }
 
-        void gas() {
+        public void gas() {
             double gas = gasAmount / 100;
             for (Car car : cars
             ) {
                 car.gas(gas);
             }
         }
-        void startEngine(){
+        public void startEngine(){
             for (Car car : cars
             ) {
                 car.startEngine();
@@ -53,7 +82,7 @@ public class CarGroup implements Subject{
             System.out.println("hello");
         }
 
-        void turboOn() {
+        public void turboOn() {
             for (Car car : cars
             ) {
 
@@ -63,25 +92,25 @@ public class CarGroup implements Subject{
 
         }
 
-        void turboOff() {
+        public void turboOff() {
             for (Car car : cars) {if (car instanceof HasTurbo t){
                 t.setTurboOff();
                 System.out.println("turbo off");}}}
 
-        void liftBed() {
+        public void liftBed() {
             for (Car car : cars) {
                 if (car instanceof HasFlatbed f) {
                     f.incrementFlatbed();
                     System.out.println("lifting");}}}
 
 
-        void lowerBed() {
+        public void lowerBed() {
             for (Car car : cars) {
                 if(car instanceof HasFlatbed f) {f.decrementFlatbed();
 
                     System.out.println("lowering");}}}
 
-        void stopEngine() {
+        public void stopEngine() {
             for (Car car : cars) {
                 car.stopEngine();
                 System.out.println("All engines stopped!");}}
@@ -91,8 +120,6 @@ public class CarGroup implements Subject{
         public void actionPerformed(ActionEvent e) {
             for (Car car : cars) {
                 car.move();
-                int x = (int) Math.round(car.getX());
-                int y = (int) Math.round(car.getY());
                 // repaint() calls the paintComponent method of the panel
                 if (car.getX() > 700) {
                     car.stopEngine();

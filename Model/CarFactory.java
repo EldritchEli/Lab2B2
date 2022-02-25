@@ -1,3 +1,7 @@
+package Model;
+
+import Model.CarClasses.*;
+
 public class CarFactory {
 
     public Car makeCar(int y, int x, String modelName ) {

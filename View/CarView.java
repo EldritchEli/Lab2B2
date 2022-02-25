@@ -1,9 +1,7 @@
+package View;
+
 import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /**
  * This class represents the full view of the MVC pattern of your car simulator.
@@ -45,22 +43,20 @@ public class CarView extends JFrame{
     int gasAmount = 0;
     JLabel gasLabel = new JLabel("      Amount of gas");
 
-    JButton gasButton = new JButton("Gas");
-    JButton brakeButton = new JButton("Brake");
-    JButton turboOnButton = new JButton("Saab Turbo on");
-    JButton turboOffButton = new JButton("Saab Turbo off");
-    JButton liftBedButton = new JButton("Scania Lift Bed");
-    JButton lowerBedButton = new JButton("Lower Lift Bed");
-    JButton addSaab = new JButton("Add new Saab");
-    JButton addVolvo240 = new JButton("Add new Volvo");
-    JButton addScania = new JButton("Add new Scania");
-    JButton removeFirst = new JButton("Remove first car");
-    JButton removeLast = new JButton("Remove last car");
-    JButton removeAll = new JButton("Remove all cars");
-
-
-    JButton startButton = new JButton("Start all cars");
-    JButton stopButton = new JButton("Stop all cars");
+    public JButton gasButton = new JButton("Gas");
+    public JButton brakeButton = new JButton("Brake");
+    public JButton turboOnButton = new JButton("Saab Turbo on");
+    public JButton turboOffButton = new JButton("Saab Turbo off");
+    public JButton liftBedButton = new JButton("Scania Lift Bed");
+    public JButton lowerBedButton = new JButton("Lower Lift Bed");
+    public JButton addSaab = new JButton("Add new Saab");
+    public JButton addVolvo240 = new JButton("Add new Volvo");
+    public JButton addScania = new JButton("Add new Scania");
+    public JButton removeFirst = new JButton("Remove first car");
+    public JButton removeLast = new JButton("Remove last car");
+    public JButton removeAll = new JButton("Remove all cars");
+    public JButton startButton = new JButton("Start all cars");
+    public JButton stopButton = new JButton("Stop all cars");
 
 
     // Sets everything in place and fits everything
